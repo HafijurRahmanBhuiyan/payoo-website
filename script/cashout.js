@@ -1,36 +1,36 @@
 document.getElementById("withdraw-btn")
     .addEventListener('click',function(){
-        const agentNumber = document.getElementById("cashout-agent").value;
+        const agentNumber = getValueFromInput("cashout-agent");
         if(agentNumber.length !== 11){
             alert("Invalid Number");
-            document.getElementById("cashout-agent").value = '';
-            document.getElementById("cashout-amount").value = '';
-            document.getElementById("cashout-pin").value = '';
+            inputMadeEmpty("cashout-agent");
+            inputMadeEmpty("cashout-amount");
+            inputMadeEmpty("cashout-pin");
             return;
         }
 
-        const cashoutAmount = document.getElementById("cashout-amount").value;
-        const totalBalance = document.getElementById("total-balance").innerText;
-        if(Number(totalBalance) < Number(cashoutAmount)){
+        const cashoutAmount = getValueFromInput("cashout-amount");
+        const currentBalance = getCurrentBalance();
+        if(currentBalance < Number(cashoutAmount)){
             alert("Insufficient Balance");
-            document.getElementById("cashout-agent").value = '';
-            document.getElementById("cashout-amount").value = '';
-            document.getElementById("cashout-pin").value = '';
+            inputMadeEmpty("cashout-agent");
+            inputMadeEmpty("cashout-amount");
+            inputMadeEmpty("cashout-pin");
             return;
         }
 
-        const pin = document.getElementById("cashout-pin").value;
-        if(pin === '5875'){
+        const pin = getValueFromInput("cashout-pin");
+        if(pin === '1234'){
             alert('Cashout Successful');
-            const newBalance = Number(totalBalance) - Number(cashoutAmount);
-            document.getElementById("total-balance").innerText = newBalance;
+            const newBalance = currentBalance - Number(cashoutAmount);
+            setBalance(newBalance);
         }
         else{
             alert("Wrong Pin")
         }
         
-        document.getElementById("cashout-agent").value = '';
-        document.getElementById("cashout-amount").value = '';
-        document.getElementById("cashout-pin").value = '';
+        inputMadeEmpty("cashout-agent");
+        inputMadeEmpty("cashout-amount");
+        inputMadeEmpty("cashout-pin");
         
     })

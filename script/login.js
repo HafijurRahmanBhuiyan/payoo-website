@@ -5,7 +5,7 @@ document.getElementById('login-btn')
         const pinInput = document.getElementById('pin-input').value;
         document.getElementById('pin-input').value = '';
         
-        if(numberInput === '01786444587' && pinInput === '5875'){
+        if(numberInput === '01786444587' && pinInput === '1234'){
             alert('Login Success');
             // window.location.replace("home.html");
             window.location.assign("home.html");
