@@ -3,9 +3,9 @@ document.getElementById("withdraw-btn")
         const agentNumber = getValueFromInput("cashout-agent");
         if(agentNumber.length !== 11){
             alert("Invalid Number");
-            inputMadeEmpty("cashout-agent");
-            inputMadeEmpty("cashout-amount");
-            inputMadeEmpty("cashout-pin");
+            // inputMadeEmpty("cashout-agent");
+            // inputMadeEmpty("cashout-amount");
+            // inputMadeEmpty("cashout-pin");
             return;
         }
 
@@ -13,9 +13,9 @@ document.getElementById("withdraw-btn")
         const currentBalance = getCurrentBalance();
         if(currentBalance < Number(cashoutAmount)){
             alert("Insufficient Balance");
-            inputMadeEmpty("cashout-agent");
-            inputMadeEmpty("cashout-amount");
-            inputMadeEmpty("cashout-pin");
+            // inputMadeEmpty("cashout-agent");
+            // inputMadeEmpty("cashout-amount");
+            // inputMadeEmpty("cashout-pin");
             return;
         }
 
@@ -24,13 +24,15 @@ document.getElementById("withdraw-btn")
             alert('Cashout Successful');
             const newBalance = currentBalance - Number(cashoutAmount);
             setBalance(newBalance);
+
+            inputMadeEmpty("cashout-agent");
+            inputMadeEmpty("cashout-amount");
+            inputMadeEmpty("cashout-pin");
         }
         else{
             alert("Wrong Pin")
         }
         
-        inputMadeEmpty("cashout-agent");
-        inputMadeEmpty("cashout-amount");
-        inputMadeEmpty("cashout-pin");
+
         
     })
