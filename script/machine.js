@@ -151,3 +151,22 @@ function transactionOfTransfer(){
             `
             parent.appendChild(newChild);
 }
+
+function showOnly(id){
+    const addMoney = document.getElementById("add-money-id");
+    const cashOut = document.getElementById("cashout-id");
+    const transfer = document.getElementById("transfer-money-id");
+    const bonus = document.getElementById("get-bonus-id");
+    const payBill = document.getElementById("pay-bill-id");
+    const transaction = document.getElementById("transaction-id");
+
+    addMoney.classList.add("hidden");
+    cashOut.classList.add("hidden");
+    transfer.classList.add("hidden");
+    bonus.classList.add("hidden");
+    payBill.classList.add("hidden");
+    transaction.classList.add("hidden");
+
+    const selected = document.getElementById(id);
+    selected.classList.remove("hidden");
+}
