@@ -159,6 +159,7 @@ function showOnly(id){
     const bonus = document.getElementById("get-bonus-id");
     const payBill = document.getElementById("pay-bill-id");
     const transaction = document.getElementById("transaction-id");
+    const latestPayment = document.getElementById("latest-payment-id");
 
     addMoney.classList.add("hidden");
     cashOut.classList.add("hidden");
@@ -166,6 +167,7 @@ function showOnly(id){
     bonus.classList.add("hidden");
     payBill.classList.add("hidden");
     transaction.classList.add("hidden");
+    latestPayment.classList.add("hidden");
 
     const selected = document.getElementById(id);
     selected.classList.remove("hidden");
