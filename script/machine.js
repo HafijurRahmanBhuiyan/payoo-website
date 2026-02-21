@@ -27,7 +27,7 @@ function formatDateTime(date) {
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
-function alertMessage(){
+function alertMessageForPayBill(){
     const bill = getValueFromInput("select-to-pay");
     const payAmount = getValueFromInput("pay-amount");
     const accountNumber = getValueFromInput("bill-account-number");
@@ -40,9 +40,6 @@ function transactionOfPayBill(){
     const payAmount = getValueFromInput("pay-amount");
     const accountNumber = getValueFromInput("bill-account-number");
     const currentDate = new Date();
-    const newBalance = getCurrentBalance() - Number(payAmount);
-    alert(`${bill} ${payAmount} taka paid by ${accountNumber} at ${formatDateTime(currentDate)}`);
-    setBalance(newBalance);
     const parent = document.getElementById("transaction-card-container");
             const newChild = document.createElement("div");
             
@@ -57,7 +54,38 @@ function transactionOfPayBill(){
                         <p class="text-neutral/50">${formatDateTime(currentDate)}</p>
                     </div>
                 </div>
-                <button onclick= "alertMessage()" class=" cursor-pointer p-1">
+                <button onclick= "alertMessageForPayBill()" class=" cursor-pointer p-1">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+            </div>
+            `
+            parent.appendChild(newChild);
+}
+
+function alertMessageForAddMoney(){
+    const amount = getValueFromInput("add-amount");
+    const bankName = getValueFromInput("add-money-bank");
+    const currentDate = new Date();
+    alert(`Add money successful ${amount} taka from ${bankName} at ${formatDateTime(currentDate)}`);
+}
+
+function transactionOfAddMoney(){
+    const currentDate = new Date();
+    const parent = document.getElementById("transaction-card-container");
+            const newChild = document.createElement("div");
+            
+            newChild.innerHTML = `
+            <div class="bg-white flex justify-between items-center max-w-sm mx-auto rounded-2xl p-2">
+                <div class="content flex gap-2 items-center">
+                    <div class="img h-11 w-11 rounded-full p-3 bg-base-200">
+                        <img src="assets/opt-1.png" alt="">
+                    </div>
+                    <div class="content ">
+                        <h3 class="text-neutral/80 font-semibold text-[16px]">Money Added</h3>
+                        <p class="text-neutral/50">${formatDateTime(currentDate)}</p>
+                    </div>
+                </div>
+                <button onclick= "alertMessageForAddMoney()" class=" cursor-pointer p-1">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </button>
             </div>

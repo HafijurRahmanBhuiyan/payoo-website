@@ -13,13 +13,14 @@ document.getElementById("add-money-btn")
         const amount = getValueFromInput("add-amount");
         const pin = getValueFromInput("add-money-pin");
         if(pin === "1234"){
-            alert(`Add money successful from ${bankName} at ${new Date()}`);
+            const currentDate = new Date();
+            alert(`Add money successful ${amount} taka from ${bankName} at ${formatDateTime(currentDate)}`);
             const newBalance = getCurrentBalance() + Number(amount);
             setBalance(newBalance);
-            
-            inputMadeEmpty("bank-number");
-            inputMadeEmpty("add-amount");
-            inputMadeEmpty("add-money-pin");
+            transactionOfAddMoney();
+            // inputMadeEmpty("bank-number");
+            // inputMadeEmpty("add-amount");
+            // inputMadeEmpty("add-money-pin");
         }
         else{
             alert("Wrong Pin");

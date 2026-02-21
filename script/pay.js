@@ -23,6 +23,10 @@ document.getElementById("pay-btn")
         }
         const pin = getValueFromInput("pay-pin");
         if(pin === '1234'){
+            const currentDate = new Date();
+            alert(`${bill} ${payAmount} taka paid by ${accountNumber} at ${formatDateTime(currentDate)}`);
+            const newBalance = getCurrentBalance() - Number(payAmount);
+            setBalance(newBalance);
             transactionOfPayBill();
         }
         else{
