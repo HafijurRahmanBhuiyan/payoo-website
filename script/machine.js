@@ -122,4 +122,32 @@ function transactionOfCashOut(){
 }
 
 
+function alertMessageForTransfer(){
+    const transferAmount = getValueFromInput("transfer-amount");
+    const currentDate = new Date();
+    alert(`${transferAmount} Taka Transferred at ${formatDateTime(currentDate)}`);
+}
 
+function transactionOfTransfer(){
+    const currentDate = new Date();
+    const parent = document.getElementById("transaction-card-container");
+            const newChild = document.createElement("div");
+            
+            newChild.innerHTML = `
+            <div class="bg-white flex justify-between items-center max-w-sm mx-auto rounded-2xl p-2">
+                <div class="content flex gap-2 items-center">
+                    <div class="img h-11 w-11 rounded-full p-3 bg-base-200">
+                        <img src="assets/opt-1.png" alt="">
+                    </div>
+                    <div class="content ">
+                        <h3 class="text-neutral/80 font-semibold text-[16px]">Money Transferred</h3>
+                        <p class="text-neutral/50">${formatDateTime(currentDate)}</p>
+                    </div>
+                </div>
+                <button onclick= "alertMessageForTransfer()" class=" cursor-pointer p-1">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+            </div>
+            `
+            parent.appendChild(newChild);
+}

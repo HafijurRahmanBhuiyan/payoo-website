@@ -13,12 +13,15 @@ document.getElementById("transfer-btn")
 
         const pin = getValueFromInput("transfer-pin");
         if(pin === '1234'){
+            const currentDate = new Date();
             const newBalance = getCurrentBalance() - Number(transferAmount);
-            alert(`${transferAmount} Taka Transferred at ${new Date()}`);
+            alert(`${transferAmount} Taka Transferred at ${formatDateTime(currentDate)}`);
             setBalance(newBalance);
-            inputMadeEmpty("transfer-pin");
-            inputMadeEmpty("transfer-amount");
-            inputMadeEmpty("transfer-account-number");
+            transactionOfTransfer();
+
+            // inputMadeEmpty("transfer-pin");
+            // inputMadeEmpty("transfer-amount");
+            // inputMadeEmpty("transfer-account-number");
         }
         else{
             alert("Wrong pin");
