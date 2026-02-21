@@ -37,8 +37,6 @@ function alertMessageForPayBill(){
 
 function transactionOfPayBill(){
     const bill = getValueFromInput("select-to-pay");
-    const payAmount = getValueFromInput("pay-amount");
-    const accountNumber = getValueFromInput("bill-account-number");
     const currentDate = new Date();
     const parent = document.getElementById("transaction-card-container");
             const newChild = document.createElement("div");
@@ -92,4 +90,36 @@ function transactionOfAddMoney(){
             `
             parent.appendChild(newChild);
 }
+
+function alertMessageForCashOut(){
+    const cashoutAmount = getValueFromInput("cashout-amount");
+    const currentDate = new Date();
+    alert(`${cashoutAmount} taka cashout Successful at ${formatDateTime(currentDate)}`);
+}
+
+function transactionOfCashOut(){
+    const currentDate = new Date();
+    const parent = document.getElementById("transaction-card-container");
+            const newChild = document.createElement("div");
+            
+            newChild.innerHTML = `
+            <div class="bg-white flex justify-between items-center max-w-sm mx-auto rounded-2xl p-2">
+                <div class="content flex gap-2 items-center">
+                    <div class="img h-11 w-11 rounded-full p-3 bg-base-200">
+                        <img src="assets/opt-1.png" alt="">
+                    </div>
+                    <div class="content ">
+                        <h3 class="text-neutral/80 font-semibold text-[16px]">Cash Out</h3>
+                        <p class="text-neutral/50">${formatDateTime(currentDate)}</p>
+                    </div>
+                </div>
+                <button onclick= "alertMessageForCashOut()" class=" cursor-pointer p-1">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+            </div>
+            `
+            parent.appendChild(newChild);
+}
+
+
 

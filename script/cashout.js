@@ -21,13 +21,14 @@ document.getElementById("withdraw-btn")
 
         const pin = getValueFromInput("cashout-pin");
         if(pin === '1234'){
-            alert('Cashout Successful');
+            const currentDate = new Date();
+            alert(`${cashoutAmount} taka cashout Successful at ${formatDateTime(currentDate)}`);
             const newBalance = currentBalance - Number(cashoutAmount);
             setBalance(newBalance);
-
-            inputMadeEmpty("cashout-agent");
-            inputMadeEmpty("cashout-amount");
-            inputMadeEmpty("cashout-pin");
+            transactionOfCashOut();
+            // inputMadeEmpty("cashout-agent");
+            // inputMadeEmpty("cashout-amount");
+            // inputMadeEmpty("cashout-pin");
         }
         else{
             alert("Wrong Pin")
