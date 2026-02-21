@@ -23,9 +23,7 @@ document.getElementById("pay-btn")
         }
         const pin = getValueFromInput("pay-pin");
         if(pin === '1234'){
-            const newBalance = getCurrentBalance() - Number(payAmount);
-            alert(`${bill} ${payAmount} taka paid by ${accountNumber} at ${new Date()}`);
-            setBalance(newBalance);
+            transactionOfPayBill();
         }
         else{
             alert('Wrong pin');
